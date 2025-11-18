@@ -35,6 +35,7 @@ Build a system that allows Customers to:
 - **Admin Login screen** - only logged users can edit tickets, all users can add new tickets.
 - **JWT Authentication**
 - **AI Summary Generation** - using OpenAI / Gemini API
+- **Email Sending**
 
 ---
 
@@ -50,8 +51,8 @@ Build a system that allows Customers to:
 - Show **full description** and **AI summary** *(if available)*
 - Updated **status**
 - Click to access single ticket view
-- New Ticket Button that opens Create New Ticket modal:
-**Fields:**
+- New Ticket Button that opens Create New Ticket modal. 
+ *Fields:*
   - Full Name  
 	- Email Address  
 	- Issue Description  
