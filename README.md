@@ -50,12 +50,11 @@ Build a system that allows Customers to:
   - **Text search** (by name or description)
 - Show **full description** and **AI summary** *(if available)*
 - Updated **status**
-- Click to access single ticket view
-- New Ticket Button that opens Create New Ticket modal. 
- *Fields:*
-  - Full Name  
-	- Email Address  
-	- Issue Description  
+- Click to access single ticket view.
+- New Ticket Button that opens Create New Ticket modal with Fields:
+  - Full Name
+  - Email Address
+  - Issue Description  
 
 **On Submit:**
 - Save the ticket data in the JSON file  
