@@ -16,10 +16,9 @@ You may also use **AI tools** (such as ChatGPT or Gemini) — **as long as you c
 ---
 
 ## 🎯 Objective
-Build a system that allows:
-- Customers to **create new support tickets**
-- Users to **view existing tickets**
-- Admins to **update ticket status** and **add resolutions**
+Build a system that allows Customers to:
+- **create new support tickets**
+- **view and edit existing tickets**
 
 ---
 
@@ -33,61 +32,53 @@ Build a system that allows:
   - The backend should include **Entities**, **DTOs**, and **Service Classes**
 
 ### ✅ Bonus Features
+- **Admin Login screen** - only logged users can edit tickets, all users can add new tickets.
 - **JWT Authentication**
-- **AI Summary Generation** using OpenAI / Gemini API
+- **AI Summary Generation** - using OpenAI / Gemini API
 
 ---
 
 ## 📋 Functional Requirements
 
-### 🔓 Login / Registration Screen *(Bonus)*
-- Login using **email and password**
-- Basic registration form
-- Only logged-in users can access the **Admin Panel**
-
----
-
-### 📝 New Ticket Screen *(Publicly Accessible)*
-
-**Fields:**
-- Full Name  
-- Email Address  
-- Issue Description  
-- Image Upload *(optional)*
-
-**Bonus:**  
-While saving the ticket, call an **AI API** to generate and display a short **summary** of the issue.
-
-**On Submit:**
-- Save the ticket data in the JSON file  
-- Send an **email to the customer** with a tracking link  
-
----
-
-### 🔍 Ticket View Screen *(Accessible by Unique ID)*
-
-**Displayed Information:**
-- Customer details  
-- Issue description  
-- AI-generated summary *(if available)*  
-- Uploaded image *(if available)*  
-- Current status  
-- Resolution text *(if available)*
-
----
-
-### 🛠️ Ticket Management (Admin Panel)
-
-**Accessible only to authenticated users** (if login is implemented)
+### 🛠️ Tickets View Screen
 
 **Features:**
 - Display all tickets in a **table view**
 - Filter by:
   - **Status** (dropdown)
   - **Text search** (by name or description)
-- Show **full description** and **AI summary**
-- Update **status**
-- Add or edit **resolution text**
+- Show **full description** and **AI summary** *(if available)*
+- Updated **status**
+- Click to access single ticket view
+- New Ticket Button that opens Create New Ticket modal:
+**Fields:**
+  - Full Name  
+	- Email Address  
+	- Issue Description  
+
+**On Submit:**
+- Save the ticket data in the JSON file  
+- Simulate sending an **email to the customer** with a tracking link  
+
+**Bonus:**  
+While saving the ticket, call an **AI API** to generate and display a short **summary** of the issue.
+
+---
+
+### 🔍 Detailed Ticket View Screen *(Accessible by Unique ID)*
+
+- Choose your preferred approach for the detailed view (modal, side panel, or separate route)
+- It has to be accessed by a **unique ticket ID** (e.g., `/tickets/{id}`).
+
+**Displayed Information:**
+- Ticket Uniaue Id
+- Customer details  
+- Issue description  
+- AI-generated summary *(if available)*  
+- Current status
+	- edit status (dropdown)
+- Resolution text *(if available)*
+	- Add or edit **resolution text**
 - **Save changes**
 
 ---
@@ -95,11 +86,12 @@ While saving the ticket, call an **AI API** to generate and display a short **su
 ## 📬 Email Notifications
 
 All emails can be sent using **any of the following options**:
-- **Gmail SMTP**, using your personal Gmail account  
-- **Alternative email service implementation** (e.g., SendGrid, MailKit, AWS SES)  
 - **Mock email service** that simulates email sending (for example, logs messages to the console or stores them in memory)
+**Bonus:**
+- **Gmail SMTP**, using your personal Gmail account
+- **Alternative email service implementation** (e.g., SendGrid, MailKit, AWS SES)  
 
-Send an email to the customer (or simulate one) in the following cases:
+Simulate sending an email to the customer in the following cases:
 1. After creating a new ticket  
 2. Whenever the **status** changes  
 3. Whenever the **resolution text** changes  
@@ -110,9 +102,10 @@ Send an email to the customer (or simulate one) in the following cases:
 
 | Feature | Description |
 |----------|--------------|
-| **Authentication (JWT)** | Login & role-based authorization for admin access |
+| **Authentication (User&Password / JWT)** | Login & role-based authorization for admin access |
 | **AI Summary** | Generate a short summary for the issue using an AI API |
 | **UI/UX Design** | Clean, responsive, and accessible interface |
+| **Email Sending** | Generic integration with email service |
 
 ---
 
@@ -120,10 +113,9 @@ Send an email to the customer (or simulate one) in the following cases:
 
 The system includes the following key screens:
 
-1. **Login Screen** – for authentication *(bonus)*  
-2. **New Ticket Form** – for customers to submit issues  
-3. **Ticket View** – detailed view by unique ID  
-4. **Ticket Management Panel** – admin interface for handling and resolving tickets  
+1. **All Tickets View** – for customers to see existing issues  
+2. **Single Ticket View** – detailed view by unique ID
+3. **Login Screen** – for authentication *(bonus)*  
 
 ### 🖼️ Screenshots
 
